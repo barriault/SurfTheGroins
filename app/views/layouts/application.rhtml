@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	
+<head>
+	<title>Surf The Groins - Galveston, TX</title>
+    <meta name="description" content="Surfing photography.">
+    <meta name="Keywords" content="surfboards, surfing, surf shop">
+	<%= stylesheet_link_tag "stylesheet" %>
+</head>
+	
+<body>
+	<div id="container">
+			
+		<div id="header">
+			<%= render :partial => 'shared/header' %>
+		</div>
+
+		<div id="topbanner">
+			<%= render :partial => 'shared/topbanner' %>
+		</div> <!-- topbanner -->
+		
+		<div id="wrapper">
+		<div id="content">
+		<%= yield %>
+		</div> <!-- content -->
+		</div> <!-- wrapper -->
+		
+		<div id="sidebar1"></div>
+		<div id="sidebar2"></div>
+		
+		<div id="affiliate">
+			<%= render :partial => 'shared/affiliate' %>
+		</div> <!-- affiliate -->
+
+		<div id="footer">
+			<%= render :partial => 'shared/footer' %>
+		</div> <!-- footer -->
+		
+	</div> <!-- container -->
+		
+</body>
+
+</html>
+

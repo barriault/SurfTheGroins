@@ -1,0 +1,8 @@
+<span style="float: right">
+<%= link_to_unless_current "Home", :controller => "slideshow" %>
+</span>
+		  
+<%= link_to "Archives", "http://barriault.smugmug.com/surfing", :popup => true %> | 
+<%= link_to_unless_current "About Us", { :controller => "about" } %> | 
+<%= link_to_unless_current "Order Prints", { :controller => "prints" } %> | 
+<%= link_to_unless_current "Image Use Policy", { :controller => "copyright" } %>

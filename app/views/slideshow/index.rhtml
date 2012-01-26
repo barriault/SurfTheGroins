@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	
+<head>
+	<title>Surf The Groins - Galveston, TX</title>
+    <meta name="description" content="Surfing photography.">
+    <meta name="Keywords" content="surfboards, surfing, surf shop">
+	<%= stylesheet_link_tag "stylesheet" %>
+	<%= javascript_include_tag 'prototype', 'effects' %>
+	<%= javascript_tag "var slides = new Array(#{@slideshow.get_slides_array});" %>
+	<script language="JavaScript" type="text/javascript">
+		var i = 0; var wait = 5000;
+
+		function SlideShow() {
+			Effect.Fade(slides[i], { duration:1, from:1.0, to:0.0, queue:'start' }); 
+			i++;
+			if (i >= slides.length) i = 0; 
+			Effect.Appear(slides[i], { duration:1, from:0.0, to:1.0, queue:'end' });
+		} 
+
+		// the onload event handler that starts the fading. 
+		function start_slideshow() { setInterval('SlideShow()',wait); }
+
+	</script> 
+</head>
+	
+<body onload="start_slideshow()">
+	<div id="container">
+			
+		<div id="header">
+			<%= render :partial => 'shared/header' %>
+		</div>
+
+		<div id="topbanner">
+			<%= render :partial => 'shared/topbanner' %>
+		</div> <!-- topbanner -->
+		
+		<div id="wrapper">
+		<div id="content">
+		
+		<h2><%= link_to @slideshow.title, "http://barriault.smugmug.com/gallery/#{@album_id}", :popup => true -%></h2>
+
+		<div id="slideshow_container" style="width: 600px; height: 450px;">
+			<div id="slides">
+				<% @slideshow.slides.each_index do |i| %>
+				<% if i == 0 then %>
+				<div id="slide<%= i -%>" class="slide">
+				<% else %>
+				<div id="slide<%= i -%>" class="slide" style="display: none;">
+				<% end %>
+					<%= image_tag "#{@slideshow.slides[i].image_m}" %>
+				</div>
+				<% end %> 	
+			</div> <!-- slides -->
+		</div> <!-- slideshow_container -->
+
+		<p><%= @slideshow.description -%></p>
+		
+		</div> <!-- content -->
+		</div> <!-- wrapper -->
+		
+		<div id="sidebar1"></div>
+		<div id="sidebar2"></div>
+
+		<div id="affiliate">
+			<%= render :partial => 'shared/affiliate' %>
+		</div> <!-- affiliate -->
+
+		<div id="footer">
+			<%= render :partial => 'shared/footer' %>
+		</div> <!-- footer -->
+		
+	</div> <!-- container -->
+		
+</body>
+
+</html>
+
